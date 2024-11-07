@@ -1,0 +1,56 @@
+[
+  {
+    "email": "juan.perez@soyudemedellin.edu.co",
+    "name": "Juan Pérez",
+    "phone": "3001234567",
+    "password": "password123"
+  },
+  {
+    "email": "maria.gomez@soyudemedellin.edu.co",
+    "name": "María Gómez",
+    "phone": "3007654321",
+    "password": "miContraseñaSegura"
+  },
+  {
+    "email": "jvillegas873@soyudemedellin.edu.co",
+    "name": "John Sebastian",
+    "phone": "3002913909",
+    "password": "Luckyo2003"
+  },
+  {
+    "email": "mdiaz900@soyudemedellin.edu.co",
+    "name": "Melisa Diaz",
+    "phone": "213124324",
+    "password": "melisa"
+  },
+  {
+    "email": "jvillegas@soyudemedellin.edu.co",
+    "name": "",
+    "phone": "",
+    "password": ""
+  },
+  {
+    "email": "sloaiza023@soyudemedellin.edu.co",
+    "name": "Samuel Loaiza",
+    "phone": "3146097228",
+    "password": "2311"
+  },
+  {
+    "email": "luck@soyudemedellin.edu.co",
+    "name": "luck",
+    "phone": "2021",
+    "password": "2021"
+  },
+  {
+    "email": "kyo2003@soyudemedellin.edu.co",
+    "name": "kyo",
+    "phone": "12321323",
+    "password": "123"
+  },
+  {
+    "email": "svieira336@soyudemedellin.edu.co",
+    "name": "Santiago Vieira",
+    "phone": "3194658810",
+    "password": "santi123"
+  }
+]
