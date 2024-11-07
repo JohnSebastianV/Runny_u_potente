@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runny_u</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.min.js"></script>
+</head>
+<body onload="initApp()">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('restaurants')">Restaurantes</a></li>
+                <li><a href="#" onclick="showSection('cart')">Carrito <span id="cart-count">0</span></a></li>
+                <li><a href="#" id="loginButton" onclick="showSection('auth-section')">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio">
+        <main>
+            <h1>Bienvenido a Runny U</h1>
+            <p>Descubre los mejores restaurantes y pide tu comida favorita.</p>
+            <a href="#" class="cta-button" onclick="showSection('restaurants')">Ver Restaurantes</a>
+        </main>
+    </section>
+
+    <!-- Sección Restaurantes -->
+    <section id="restaurants" style="display:none;">
+        <main>
+            <h1>Restaurantes</h1>
+            <div id="restaurant-list">
+                <!-- Lista de restaurantes generada dinámicamente -->
+            </div>
+        </main>
+    </section>
+
+    <!-- Sección Menú -->
+    <section id="menu" style="display:none;">
+        <main>
+            <h1 id="restaurant-name">Menú</h1>
+            <div id="menu-list">
+                <!-- Lista de menús generada dinámicamente -->
+            </div>
+            <button onclick="showSection('restaurants')">Volver a Restaurantes</button>
+        </main>
+    </section>
+
+    <!-- Sección Carrito -->
+    <section id="cart" style="display:none;">
+        <main>
+            <h1>Tu Carrito</h1>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button id="checkout-button" class="cta-button">Proceder al Pago</button>
+        </main>
+    </section>
+
+    <!-- Sección de Autenticación -->
+    <section id="auth-section" style="display:none;">
+        <h1 id="auth-title">Iniciar Sesión</h1>
+        <form id="auth-form">
+            <!-- Login Section -->
+            <div id="login-section">
+                <input type="email" id="loginEmail" placeholder="Correo" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                <div id="loginError" class="error-message"></div>
+                <button type="button" onclick="handleLogin(event)">Iniciar Sesión</button>
+                <a href="#" onclick="switchToRegister()">¿No tienes cuenta? Regístrate aquí</a>
+            </div>
+        </form>
+    </section>
+
+    <!-- Sección de Registro -->
+    <section id="register-section" style="display:none;">
+        <h1 id="auth-title">Regístrate</h1>
+        <form id="register-form">
+            <input type="email" id="registerEmail" placeholder="Correo" required>
+            <input type="text" id="registerName" placeholder="Nombre" required>
+            <input type="text" id="registerPhone" placeholder="Teléfono" required>
+            <input type="password" id="registerPassword" placeholder="Contraseña" required>
+            <div id="registerError" class="error-message"></div>
+            <button type="button" onclick="handleRegister(event)">Registrar</button>
+            <a href="#" onclick="switchToLogin()">¿Ya tienes cuenta?</a>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; Proyecto de prueba lenguajes y paradigmas de programación.</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -13,11 +13,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Servir archivos estáticos (index.html, css, js, imágenes)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public_2')));
 
 // Ruta para la página principal, ya que index.html está en /public
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public_2', 'index.html'));
 });
 
 // Obtener usuarios
