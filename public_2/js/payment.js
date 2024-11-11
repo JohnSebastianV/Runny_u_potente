@@ -1,26 +1,26 @@
-// payment.js
-const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+// Inicializa Stripe con tu clave pública
+const stripe = Stripe('TU_CLAVE_PUBLICA_STRIPE');
 
 document.getElementById('checkout-button').addEventListener('click', async () => {
-    try {
-        const response = await fetch('/create-checkout-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ items: cart }),
-        });
+    const cartTotal = document.getElementById('cart-total').innerText;
+    const amount = parseFloat(cartTotal) * 100; // Convierte a centavos
 
-        const session = await response.json();
+    const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount }),
+    });
 
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.id,
-        });
+    const session = await response.json();
 
-        if (result.error) {
-            alert(result.error.message);
-        }
-    } catch (error) {
-        console.error('Error:', error);
+    // Redirecciona a Stripe para completar el pago
+    const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+    });
+
+    if (error) {
+        console.error(error.message);
     }
 });

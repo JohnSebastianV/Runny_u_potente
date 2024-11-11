@@ -6,7 +6,7 @@
     <title>Runny_u</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="favicon.png" type="image/png">
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script> <!-- Incluye Stripe JS SDK -->
     <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.min.js"></script>
 </head>
 <body onload="initApp()">
@@ -47,7 +47,8 @@
             <div id="menu-list">
                 <!-- Lista de menús generada dinámicamente -->
             </div>
-            <button onclick="showSection('restaurants')">Volver a Restaurantes</button>
+            <button onclick="showSection('restaurants')" id="volver-restaurantes">Volver a Restaurantes</button>
+
         </main>
     </section>
 
@@ -57,7 +58,8 @@
             <h1>Tu Carrito</h1>
             <div id="cart-items"></div>
             <p>Total: $<span id="cart-total">0.00</span></p>
-            <button id="checkout-button" class="cta-button">Proceder al Pago</button>
+            <button id="checkout-button" class="cta-button" onclick="handleCheckout()">Proceder al Pago</button>
+            <p id="loading-message" style="display: none;">Procesando el pago, por favor espera...</p>
         </main>
     </section>
 
@@ -97,8 +99,7 @@
     <script src="js/auth.js"></script>
     <script src="js/register.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/payment.js"></script>
+    <script src="js/payment.js"></script> <!-- Archivo de JavaScript para Stripe -->
     <script src="js/main.js"></script>
 </body>
 </html>
-

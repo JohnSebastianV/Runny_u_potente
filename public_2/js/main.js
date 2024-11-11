@@ -4,10 +4,7 @@ const restaurants = [
     { id: 3, name: "Dogger", description: "Los perros de oro" },
     { id: 4, name: "Sato", description: "Típico y sabroso" },
     { id: 5, name: "Caffeto", description: "Café y postres artesanales" },
-    { id: 6, name: "Pimientos", description: "Las mejores pizzas" },
-    { id: 7, name: "Donde juan", description: "Lo mejor para ti" },
-    { id: 8, name: "Cafeteria coliseo", description: "Bocadillos rápidos y bebidas" },
-    { id: 9, name: "Dary", description: "Todo rápido y delicioso" }
+
 ];
 
 const menus = {
@@ -35,26 +32,6 @@ const menus = {
         { id: 13, name: "Café Americano", price: 3.99 },
         { id: 14, name: "Cheesecake", price: 5.99 },
         { id: 15, name: "Capuchino", price: 4.99 },
-    ],
-    6: [
-        { id: 16, name: "Pizza mediterranea", price: 9.99 },
-        { id: 17, name: "Pizza hawaiana", price: 18.99 },
-        { id: 18, name: "Pizza de peperoni", price: 6.99 },
-    ],
-    7: [
-        { id: 19, name: "Churrasco", price: 20.99 },
-        { id: 20, name: "Tipico caleño", price: 3.99 },
-        { id: 21, name: "Soncocho de pescado", price: 4.99 },
-    ],
-    8: [
-        { id: 22, name: "Sándwich Mixto", price: 7.99 },
-        { id: 23, name: "Jugos Naturales", price: 3.99 },
-        { id: 24, name: "Galletas", price: 2.99 },
-    ],
-    9: [
-        { id: 25, name: "Desyuno tipico", price: 5.99 },
-        { id: 26, name: "Asado de carne o pollo", price: 4.99 },
-        { id: 27, name: "Chuzo de Cerdo", price: 3.99 },
     ],
 };
 

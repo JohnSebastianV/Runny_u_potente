@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de Pago Simulada</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pasarela de Pago Simulada</h1>
+    </header>
+
+    <!-- Sección de pago -->
+    <section id="payment-section">
+        <main>
+            <h2>Resumen de tu Pedido</h2>
+            <p>Total: $<span id="cart-total">100.00</span></p> <!-- Total de ejemplo -->
+            <button id="checkout-button" class="cta-button" onclick="simulateCheckout()">Proceder al Pago</button>
+            <p id="loading-message" style="display: none;">Procesando el pago, por favor espera...</p>
+            <p id="success-message" style="display: none; color: green;"></p>
+        </main>
+    </section>
+
+    <footer>
+        <p>&copy; Proyecto de prueba lenguajes y paradigmas de programación.</p>
+    </footer>
+
+    <script src="js/payment.js"></script>
+</body>
+</html>
