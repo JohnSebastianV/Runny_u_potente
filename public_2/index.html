@@ -63,11 +63,44 @@
         </main>
     </section>
 
+    <!-- Sección de Pago -->
+    <section id="payment-section" style="display:none;">
+        <div class="payment-container">
+            <h2></h2>
+            <h2>Pasarela de Pago</h2>
+            <form id="payment-form" action="#">
+                <p>Usa tus Runny Créditos para realizar el pago</p>
+                <label for="runny-credits">Cantidad de Runny Créditos</label>
+                <select id="runny-credits" onchange="updatePrice()">
+                    <option value="10">10 Créditos</option>
+                    <option value="20">20 Créditos</option>
+                    <option value="50">50 Créditos</option>
+                    <option value="100">100 Créditos</option>
+                </select>
+                <p>Total en Pesos Colombianos: <span id="price-display">$0</span> COP</p>
+                <label for="name">Nombre en la tarjeta</label>
+                <input type="text" id="name" placeholder="Nombre Completo" required>
+                <label for="card-number">Número de tarjeta</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required maxlength="19">
+                <div class="card-details">
+                    <div>
+                        <label for="expiration-date">Fecha de Expiración</label>
+                        <input type="text" id="expiration-date" placeholder="MM/AA" required maxlength="5">
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="password" id="cvv" placeholder="123" required maxlength="3">
+                    </div>
+                </div>
+                <button type="submit">Pagar con Runny Créditos</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Sección de Autenticación -->
     <section id="auth-section" style="display:none;">
         <h1 id="auth-title">Iniciar Sesión</h1>
         <form id="auth-form">
-            <!-- Login Section -->
             <div id="login-section">
                 <input type="email" id="loginEmail" placeholder="Correo" required>
                 <input type="password" id="loginPassword" placeholder="Contraseña" required>
@@ -75,20 +108,6 @@
                 <button type="button" onclick="handleLogin(event)">Iniciar Sesión</button>
                 <a href="#" onclick="switchToRegister()">¿No tienes cuenta? Regístrate aquí</a>
             </div>
-        </form>
-    </section>
-
-    <!-- Sección de Registro -->
-    <section id="register-section" style="display:none;">
-        <h1 id="auth-title">Regístrate</h1>
-        <form id="register-form">
-            <input type="email" id="registerEmail" placeholder="Correo" required>
-            <input type="text" id="registerName" placeholder="Nombre" required>
-            <input type="text" id="registerPhone" placeholder="Teléfono" required>
-            <input type="password" id="registerPassword" placeholder="Contraseña" required>
-            <div id="registerError" class="error-message"></div>
-            <button type="button" onclick="handleRegister(event)">Registrar</button>
-            <a href="#" onclick="switchToLogin()">¿Ya tienes cuenta?</a>
         </form>
     </section>
 
@@ -101,5 +120,19 @@
     <script src="js/cart.js"></script>
     <script src="js/payment.js"></script> <!-- Archivo de JavaScript para Stripe -->
     <script src="js/main.js"></script>
+    
+    <script>
+        function handleCheckout() {
+            document.getElementById('cart').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'block';
+        }
+
+        function updatePrice() {
+            const credits = document.getElementById('runny-credits').value;
+            const priceDisplay = document.getElementById('price-display');
+            const price = credits * 1000; // Suponiendo que 1 crédito = 1000 COP
+            priceDisplay.textContent = `$${price}`;
+        }
+    </script>
 </body>
 </html>

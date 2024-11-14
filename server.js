@@ -9,6 +9,8 @@ const app = express();
 const PORT = 3000;
 const USERS_FILE = path.join(__dirname, 'users.json');
 
+app.use(express.static('public_2'));
+
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
