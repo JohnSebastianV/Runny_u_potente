@@ -373,3 +373,136 @@ section {
   background-color: #4c7bad;  /* Color al pasar el ratón */
   transform: translateY(-3px);
 }
+
+.join-link {
+  margin-top: 20px;
+  font-size: 24px; /* Aumenta el tamaño de la fuente */
+}
+
+.highlighted-text {
+  color: #ff6f61; /* Mismo color que el texto "Bienvenido a Runny U" */
+  font-weight: bold;
+  text-decoration: none; /* Para que parezca texto normal */
+  cursor: pointer;
+  font-size: 24px; /* Aumenta el tamaño de la fuente */
+}
+
+.highlighted-text:hover {
+  color: #ff3f31; /* Cambiar color al pasar el mouse */
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+#payment-section {
+    display: none;
+    background-color: #fff;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.payment-container {
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+label {
+    font-size: 14px;
+    text-align: left;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+
+#price-display {
+    font-weight: bold;
+    color: #333;
+}
+
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-details > div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.card-details > div:last-child {
+    margin-right: 0;
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
