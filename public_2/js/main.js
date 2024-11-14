@@ -9,29 +9,29 @@ const restaurants = [
 
 const menus = {
     1: [
-        { id: 1, name: "Hamburguesa Clásica", price: 10000.0 },
-        { id: 2, name: "Badeja paisa", price: 15.000 },
-        { id: 3, name: "Carne asada", price: 19.000 },
+        { id: 1, name: "Hamburguesa Clásica", price: 10000.0, image: "images/hamguesasimple.png" },
+        { id: 2, name: "Badeja paisa", price: 15.000, image: "images/bandejapaisa.png" },
+        { id: 3, name: "Carne asada", price: 19.000, image: "images/carneasada.png" },
     ],
     2: [
-        { id: 4, name: "Papas paisas", price: 14.900 },
-        { id: 5, name: "Lasaña", price: 15.990 },
-        { id: 6, name: "Enchiladas", price: 13.99 },
+        { id: 4, name: "Papas paisas", price: 14.900, image: "images/papaspaisas.png" },
+        { id: 5, name: "Lasaña", price: 15.990, image: "images/lasaña.png" },
+        { id: 6, name: "Enchiladas", price: 13.99, image: "images/enchiladas.png" },
     ],
     3: [
-        { id: 7, name: "Perro en combo", price: 18.99 },
-        { id: 8, name: "Brownie", price: 16.99 },
-        { id: 9, name: "Perro Callejero", price: 12.99 },
+        { id: 7, name: "Perro en combo", price: 18.99, image: "images/perroencombo.png" },
+        { id: 8, name: "Brownie", price: 16.99, image: "images/brownie.png" },
+        { id: 9, name: "Perro Callejero", price: 12.99, image: "images/perrocallegero.png" },
     ],
     4: [
-        { id: 10, name: "Ramen", price: 14.99 },
-        { id: 11, name: "Sopa de verduras", price: 7.99 },
-        { id: 12, name: "Ajiaco", price: 2.99 },
+        { id: 10, name: "Ramen", price: 14.99, image: "images/ramen.png" },
+        { id: 11, name: "Sopa de verduras", price: 7.99, image: "images/sopadeverduras.png" },
+        { id: 12, name: "Ajiaco", price: 2.99, image: "images/ajiaco.png" },
     ],
     5: [
-        { id: 13, name: "Café Americano", price: 3.99 },
-        { id: 14, name: "Cheesecake", price: 5.99 },
-        { id: 15, name: "Capuchino", price: 4.99 },
+        { id: 13, name: "Café Americano", price: 3.99, image: "images/cafe.png" },
+        { id: 14, name: "Cheesecake", price: 5.99, image: "images/torta.png" },
+        { id: 15, name: "Capuchino", price: 4.99, image: "images/capuchino.png" },
     ],
 };
 
@@ -42,11 +42,40 @@ function initApp() {
 }
 
 function showSection(sectionId) {
+    console.log(`Intentando mostrar la sección: ${sectionId}`);
     document.querySelectorAll("section").forEach(section => {
         section.style.display = "none";
     });
-    document.getElementById(sectionId).style.display = "block";
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = "block";
+    } else {
+        console.error(`No se encontró la sección con id: ${sectionId}`);
+    }
 }
+
+function loadFullScreenImage(imageUrl) {
+    // Cambiar a la sección fullscreen-image
+    showSection('fullscreen-image');
+    
+    // Seleccionar el contenedor de la imagen en pantalla completa
+    const imageContainer = document.getElementById('images/enconstruccion.png');
+    
+    // Limpiar cualquier imagen previa
+    imageContainer.innerHTML = '';
+    
+    // Crear un elemento de imagen
+    const fullScreenImage = document.createElement('images/enconstruccion.png');
+    fullScreenImage.src = imageUrl;
+    fullScreenImage.alt = 'Imagen a pantalla completa';
+    fullScreenImage.style.width = '100%';  // Ajusta el tamaño de la imagen al 100% del contenedor
+    fullScreenImage.style.height = '100vh';  // Hace que la imagen ocupe toda la altura de la ventana
+    
+    // Añadir la imagen al contenedor
+    imageContainer.appendChild(fullScreenImage);
+}
+
 
 function loadRestaurants() {
     const restaurantList = document.getElementById("restaurant-list");
@@ -73,6 +102,7 @@ function loadMenu(restaurantId) {
     menuItems.forEach(item => {
         const itemElement = document.createElement("div");
         itemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 150px; height: 150px; object-fit: cover;" />
             <h3>${item.name}</h3>
             <p>Precio: $${item.price.toFixed(2)}</p>
             <button onclick="addToCart(${restaurantId}, ${item.id}, '${item.name}', ${item.price})">
@@ -84,6 +114,7 @@ function loadMenu(restaurantId) {
 
     showSection("menu");
 }
+
 
 function addToCart(restaurantId, itemId, itemName, itemPrice) {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
